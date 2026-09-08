@@ -1,104 +1,164 @@
 "use client";
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Agency" },
-  { href: "/business", label: "Network" },
-  { href: "/projects", label: "Studio" },
-  { href: "/objectives", label: "News" },
+  {
+    href: "/production",
+    label: "Production",
+    subLinks: [
+      { href: "/production", label: "Film Production" },
+      { href: "/production", label: "Television & Broadcast Production" },
+      { href: "/production", label: "Digital & Branded Content Production" },
+      { href: "/production", label: "Music & Audio Production" },
+    ],
+  },
+  {
+    href: "/distribution",
+    label: "Distribution",
+    subLinks: [
+      { href: "/distribution", label: "Theatrical Distribution" },
+      { href: "/distribution", label: "OTT & Digital Distribution" },
+      { href: "/distribution", label: "Broadcast & Syndication" },
+      { href: "/distribution", label: "International Distribution" },
+    ],
+  },
+  {
+    href: "/licensing",
+    label: "Licensing",
+    subLinks: [
+      { href: "/licensing", label: "Content Licensing" },
+      { href: "/licensing", label: "Music & Sync Licensing" },
+      { href: "/licensing", label: "Format Licensing" },
+      { href: "/licensing", label: "Rights & Royalty Management" },
+    ],
+  },
+  {
+    href: "/publicity-release",
+    label: "Publicity & Release",
+    subLinks: [
+      { href: "/publicity-release", label: "Public Relations & Media Outreach" },
+      { href: "/publicity-release", label: "Release Strategy & Planning" },
+      { href: "/publicity-release", label: "Premieres, Junkets & Events" },
+      { href: "/publicity-release", label: "Crisis & Reputation Management" },
+    ],
+  },
+  {
+    href: "/merchandising",
+    label: "Merchandising",
+    subLinks: [
+      { href: "/merchandising", label: "Product & Character Licensing" },
+      { href: "/merchandising", label: "Retail Partnerships" },
+      { href: "/merchandising", label: "E-commerce & D2C" },
+      { href: "/merchandising", label: "Collectibles & Limited Editions" },
+    ],
+  },
+  {
+    href: "/brand-partner",
+    label: "Brand Partner",
+    subLinks: [
+      { href: "/brand-partner", label: "Brand Integration & Product Placement" },
+      { href: "/brand-partner", label: "Sponsorships & Co-Branded Campaigns" },
+      { href: "/brand-partner", label: "Influencer & Talent Partnerships" },
+      { href: "/brand-partner", label: "Experiential Marketing" },
+    ],
+  },
+  {
+    href: "/projects",
+    label: "Studio",
+    subLinks: [
+      { href: "/projects", label: "Film Studio" },
+      { href: "/projects", label: "Recording Studio" },
+      { href: "/projects", label: "Photo Studio" },
+      { href: "/projects", label: "Digital & Chroma Studio" },
+    ],
+  },
 ];
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-  const [closing, setClosing] = useState(false);
-  const closeTimer = useRef(null);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [lastSubmenu, setLastSubmenu] = useState(0);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const submenuTimer = useRef(null);
 
-  const closeMenu = () => {
-    if (!open) return;
-    setClosing(true);
-    closeTimer.current = setTimeout(() => {
-      setOpen(false);
-      setClosing(false);
-    }, 1000);
+  const showSubmenu = (i) => {
+    if (submenuTimer.current) clearTimeout(submenuTimer.current);
+    setActiveSubmenu(i);
+    setLastSubmenu(i);
   };
 
-  const toggleMenu = (e) => {
-    e.stopPropagation();
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    if (!open) {
-      setClosing(false);
-      setOpen(true);
-    } else {
-      closeMenu();
-    }
+  const hideSubmenuDelayed = () => {
+    if (submenuTimer.current) clearTimeout(submenuTimer.current);
+    submenuTimer.current = setTimeout(() => setActiveSubmenu(null), 200);
   };
 
   useEffect(() => {
-    const handleBodyClick = () => closeMenu();
-    document.body.addEventListener("click", handleBodyClick);
-    const handleContextMenu = (e) => e.preventDefault();
-    document.body.addEventListener("contextmenu", handleContextMenu);
     return () => {
-      document.body.removeEventListener("click", handleBodyClick);
-      document.body.removeEventListener("contextmenu", handleContextMenu);
-      if (closeTimer.current) clearTimeout(closeTimer.current);
+      if (submenuTimer.current) clearTimeout(submenuTimer.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [open]);
+  }, []);
 
   return (
-    <header>
-      <nav
-        className={`navbar navbar-expand-lg navbar-light fixed-top${open ? " bg-light" : ""}`}
-        style={{ cursor: "pointer" }}
-        onClick={toggleMenu}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <Link href="/" onClick={(e) => e.stopPropagation()}>
-            <img src="/res/logo.png" className="logo-img" style={{ width: 75 }} alt="Rave" />
-          </Link>
-          <img src="/res/menu-icon.png" style={{ height: "2rem" }} alt="Menu" />
-          <Link href="/contactus" onClick={(e) => e.stopPropagation()}>
-            <img
-              style={{ height: "3rem" }}
-              className="contactusbtn"
-              src="/res/contact-icon.png"
-              alt="Contact us"
-            />
-          </Link>
-        </div>
-      </nav>
-      <div
-        className={`menu-options bg-light${closing ? " menu-box" : ""}`}
-        style={{ display: open ? "block" : "none" }}
-        onMouseEnter={() => {
-          if (closeTimer.current) clearTimeout(closeTimer.current);
-        }}
-      >
-        <div
-          className={`mx-4 menu-row${closing ? " menu-options-opacity" : ""}`}
-          style={{ display: open ? "flex" : "none" }}
-        >
+    <header className="rv-navbar">
+      <div className="rv-navbar-inner">
+        <Link href="/" className="rv-navbar-logo" onClick={() => setMobileOpen(false)}>
+          <img src="/res/logo.png" alt="Rave" />
+        </Link>
+
+        <ul className="rv-navbar-links">
           {NAV_LINKS.map((link, i) => (
-            <Fragment key={link.href}>
-              <h4>
-                <Link href={link.href}>{link.label}</Link>
-              </h4>
-              {i < NAV_LINKS.length - 1 && <span></span>}
-            </Fragment>
+            <li
+              key={link.href}
+              className={activeSubmenu === i ? "active" : ""}
+              onMouseEnter={() => showSubmenu(i)}
+              onMouseLeave={hideSubmenuDelayed}
+            >
+              <Link href={link.href} className="rv-nav-link">
+                {link.label}
+                <span className="rv-chevron">▾</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <Link href="/contactus" className="rv-navbar-contact">
+          <img src="/res/contact-icon.png" alt="Contact us" />
+        </Link>
+
+        <button
+          type="button"
+          className="rv-navbar-toggle"
+          aria-label="Toggle menu"
+          onClick={() => setMobileOpen((v) => !v)}
+        >
+          <img src="/res/menu-icon.png" alt="Menu" />
+        </button>
+      </div>
+
+      <div
+        className={`rv-submenu-panel${activeSubmenu !== null ? " open" : ""}`}
+        onMouseEnter={() => showSubmenu(lastSubmenu)}
+        onMouseLeave={hideSubmenuDelayed}
+      >
+        <div className="rv-submenu-inner" key={lastSubmenu}>
+          {NAV_LINKS[lastSubmenu].subLinks.map((sub) => (
+            <Link key={sub.label} href={sub.href} className="rv-submenu-row">
+              {sub.label}
+            </Link>
           ))}
         </div>
       </div>
+
+      {mobileOpen && (
+        <div className="rv-mobile-menu">
+          {NAV_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} className="rv-mobile-link" onClick={() => setMobileOpen(false)}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
