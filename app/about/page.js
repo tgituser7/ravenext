@@ -8,7 +8,6 @@ export default function AboutPage() {
   return (
     <>
       <div className="row bg-light mx-1 ab_headrow">
-      
         <div className="col-3 p-0">
           <img className="ab_headimg" src="/res/bhd.png" alt="" />
         </div>
