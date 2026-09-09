@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const TRANSPARENT_ROUTES = ["/distribution"];
 
 const NAV_LINKS = [
   {
@@ -77,9 +80,11 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [lastSubmenu, setLastSubmenu] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const submenuTimer = useRef(null);
 
   const showSubmenu = (i) => {
@@ -99,8 +104,22 @@ export default function Header() {
     };
   }, []);
 
+  const isTransparentRoute = TRANSPARENT_ROUTES.includes(pathname);
+
+  useEffect(() => {
+    if (!isTransparentRoute) return undefined;
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isTransparentRoute]);
+
+  const navClassName = `rv-navbar${
+    isTransparentRoute && !scrolled && activeSubmenu === null ? " rv-navbar--transparent" : ""
+  }`;
+
   return (
-    <header className="rv-navbar">
+    <header className={navClassName}>
       <div className="rv-navbar-inner">
         <Link href="/" className="rv-navbar-logo" onClick={() => setMobileOpen(false)}>
           <img src="/res/logo.png" alt="Rave" />
