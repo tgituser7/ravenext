@@ -84,8 +84,14 @@ export default function Header() {
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [lastSubmenu, setLastSubmenu] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileExpanded, setMobileExpanded] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const submenuTimer = useRef(null);
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    setMobileExpanded(null);
+  };
 
   const showSubmenu = (i) => {
     if (submenuTimer.current) clearTimeout(submenuTimer.current);
@@ -121,7 +127,7 @@ export default function Header() {
   return (
     <header className={navClassName}>
       <div className="rv-navbar-inner">
-        <Link href="/" className="rv-navbar-logo" onClick={() => setMobileOpen(false)}>
+        <Link href="/" className="rv-navbar-logo" onClick={closeMobileMenu}>
           <img src="/res/logo.png" alt="Rave" />
         </Link>
 
@@ -149,7 +155,10 @@ export default function Header() {
           type="button"
           className="rv-navbar-toggle"
           aria-label="Toggle menu"
-          onClick={() => setMobileOpen((v) => !v)}
+          onClick={() => {
+            setMobileOpen((v) => !v);
+            setMobileExpanded(null);
+          }}
         >
           <img src="/res/menu-icon.png" alt="Menu" />
         </button>
@@ -171,10 +180,29 @@ export default function Header() {
 
       {mobileOpen && (
         <div className="rv-mobile-menu">
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="rv-mobile-link" onClick={() => setMobileOpen(false)}>
-              {link.label}
-            </Link>
+          {NAV_LINKS.map((link, i) => (
+            <div className="rv-mobile-item" key={link.href}>
+              <div className="rv-mobile-row">
+                <Link href={link.href} className="rv-mobile-link" onClick={closeMobileMenu}>
+                  {link.label}
+                </Link>
+                <button
+                  type="button"
+                  className={`rv-mobile-chevron-btn${mobileExpanded === i ? " open" : ""}`}
+                  aria-label={`Toggle ${link.label} submenu`}
+                  onClick={() => setMobileExpanded((cur) => (cur === i ? null : i))}
+                >
+                  <span className="rv-chevron">▾</span>
+                </button>
+              </div>
+              <div className={`rv-mobile-submenu${mobileExpanded === i ? " open" : ""}`}>
+                {link.subLinks.map((sub) => (
+                  <Link key={sub.label} href={sub.href} className="rv-mobile-sublink" onClick={closeMobileMenu}>
+                    {sub.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       )}
