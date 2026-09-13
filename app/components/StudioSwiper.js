@@ -80,7 +80,6 @@ export default function StudioSwiper() {
 
       <div className="facility-swiper-head">
         <div>
-          <span className="facility-swiper-eyebrow">Take a peek</span>
           <h2 className="facility-swiper-title">
             Step inside where the <span className="facility-swiper-highlight">magic</span> comes together.
           </h2>
