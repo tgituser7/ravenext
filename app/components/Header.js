@@ -5,10 +5,10 @@ import Link from "next/link";
 
 const NAV_LINKS = [
   { href: "/about", label: "About" },
-  { href: "/services", label: "Agency" },
-  { href: "/business", label: "Network" },
-  { href: "/projects", label: "Studio" },
-  { href: "/objectives", label: "News" },
+  { href: "/project", label: "Project" },
+  { href: "/network", label: "Network" },
+  { href: "/studio", label: "Studio" },
+  { href: "/news", label: "News" },
 ];
 
 export default function Header() {

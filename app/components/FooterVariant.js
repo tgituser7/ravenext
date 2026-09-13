@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Footer from "./Footer";
 
-const RAVE_VARIANT_ROUTES = ["/about", "/business", "/career", "/contactus", "/objectives", "/resources"];
+const RAVE_VARIANT_ROUTES = ["/about", "/network", "/career", "/contactus", "/news", "/resources"];
 
 export default function FooterVariant() {
   const pathname = usePathname();

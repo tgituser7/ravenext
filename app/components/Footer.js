@@ -41,12 +41,12 @@ export default function Footer({ variant = "about" }) {
             )}
           </div>
           <div className="footer_menu">
-            <p><a className="fm_head" href="/business">Divisions</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/business">Digital</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/business">Media</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/business">Music</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/business">Productions</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/business">Studios</a></p>
+            <p><a className="fm_head" href="/network">Divisions</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/network">Digital</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/network">Media</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/network">Music</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/network">Productions</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/network">Studios</a></p>
           </div>
           <div className="footer_menu">
             <p><a className="fm_head" href="/resources">Resources</a></p>
@@ -59,15 +59,15 @@ export default function Footer({ variant = "about" }) {
             <p className="footer_pa"><a className="footer_mo" href="/resources">Equipments</a></p>
           </div>
           <div className="footer_menu">
-            <p><a className="fm_head" href="/business">Network</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/business">Sectors</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/business">Youtube CMS</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/services">Agency</a></p>
+            <p><a className="fm_head" href="/network">Network</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/network">Sectors</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/network">Youtube CMS</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/project">Project</a></p>
           </div>
           <div className="footer_menu">
-            <p><a className="fm_head" href="/objectives">News</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/objectives">Purpose</a></p>
-            <p className="footer_pa"><a className="footer_mo" href="/objectives">Responsibility</a></p>
+            <p><a className="fm_head" href="/news">News</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/news">Purpose</a></p>
+            <p className="footer_pa"><a className="footer_mo" href="/news">Responsibility</a></p>
           </div>
           <div className="footer_menu">
             <p><a className="fm_head" href="/career">Careers</a></p>
