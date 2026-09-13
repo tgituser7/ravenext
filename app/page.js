@@ -1,4 +1,5 @@
 import MediaTabs from "./components/MediaTabs";
+import StudioSwiper from "./components/StudioSwiper";
 
 export const metadata = {
   title: "Rave",
@@ -199,63 +200,7 @@ export default function Home() {
 
       <section className="mt-5"></section>
 
-      <section className="res_section my-5">
-        <div className="row res_heading" style={{ margin: "6rem", marginBottom: 0 }}>
-          <div className="p-0 res_col2">
-            <div id="carouselExampleIndicators3" className="carousel slide" data-bs-ride="carousel">
-              <div className="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="4" aria-label="Slide 5"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="5" aria-label="Slide 6"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="6" aria-label="Slide 7"></button>
-              </div>
-              <div className="carousel-inner ci_2" style={{ height: "70vh" }}>
-                <div className="carousel-item active ci1">
-                  <div className="c_div" style={{ backgroundImage: "url('/res/sf.jpeg')" }}></div>
-                </div>
-                <div className="carousel-item ci2">
-                  <div className="c_div" style={{ backgroundImage: "url('/res/kset2.JPG')" }}></div>
-                </div>
-                <div className="carousel-item ci3">
-                  <div className="c_div" style={{ backgroundImage: "url('/res/private-photography.jpeg')" }}></div>
-                </div>
-                <div className="carousel-item ci4">
-                  <div className="c_div" style={{ backgroundImage: "url('/res/Recording Studio.jpeg')" }}></div>
-                </div>
-                <div className="carousel-item ci5">
-                  <div className="c_div" style={{ backgroundImage: "url('/res/cstudio.jpeg')" }}></div>
-                </div>
-                <div className="carousel-item ci6">
-                  <div className="c_div" style={{ backgroundImage: "url('/res/makeup.JPG')" }}></div>
-                </div>
-                <div className="carousel-item ci7">
-                  <div className="c_div" style={{ backgroundImage: "url('/res/Resources Equipments 2.jpeg')" }}></div>
-                </div>
-              </div>
-              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-              </button>
-            </div>
-          </div>
-          <div className="text-light res_col p-0" style={{ display: "flex", flexDirection: "row", height: "5rem" }}>
-            <p className="ws1 wsb text_scale">Shooting <br /> Floor</p>
-            <p className="ws2 wsb">Kitchen <br /> Set</p>
-            <p className="ws3 wsb">Photo <br /> Studio</p>
-            <p className="ws4 wsb">Recording <br /> Facility</p>
-            <p className="ws5 wsb">Chroma <br /> Setup</p>
-            <p className="ws6 wsb">Makeup <br /> Room</p>
-            <p className="ws7 wsb"> Shooting <br /> Equipments</p>
-          </div>
-        </div>
-      </section>
+      <StudioSwiper />
 
       <section className="clients_section">
         <div className="container">
