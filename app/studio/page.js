@@ -65,10 +65,10 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="container" style={{ marginBottom: "3rem" }}>
+      <section className="container" style={{ marginBottom: "3rem", padding: "3.5rem 2.5rem" }}>
         <p className="project_km">To Know More</p>
         <p className="project_akm f_heebo">about our work or any other business related query kindly reach us at work@rave.net.in</p>
-        <p className="project_lkm f_heebo">We give the best quotation and solution.</p>
+        <p className="project_lkm f_heebo" style={{ marginBottom: 0 }}>We give the best quotation and solution.</p>
       </section>
     </>
   );
