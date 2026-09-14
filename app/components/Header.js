@@ -4,11 +4,9 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { href: "/about", label: "About" },
   { href: "/project", label: "Project" },
   { href: "/network", label: "Network" },
   { href: "/studio", label: "Studio" },
-  { href: "/news", label: "News" },
 ];
 
 export default function Header() {
@@ -59,18 +57,19 @@ export default function Header() {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "space-between",
             alignItems: "center",
             width: "100%",
+            padding: "0.85rem 1.25rem",
           }}
         >
           <Link href="/" onClick={(e) => e.stopPropagation()}>
-            <img src="/res/logo.png" className="logo-img" style={{ width: 75 }} alt="Rave" />
+            <img src="/res/logo.png" className="logo-img" style={{ width: 92 }} alt="Rave" />
           </Link>
-          <img src="/res/menu-icon.png" style={{ height: "2rem" }} alt="Menu" />
+          <img src="/res/menu-icon.png" style={{ height: "2.5rem" }} alt="Menu" />
           <Link href="/contactus" onClick={(e) => e.stopPropagation()}>
             <img
-              style={{ height: "3rem" }}
+              style={{ height: "3.75rem" }}
               className="contactusbtn"
               src="/res/contact-icon.png"
               alt="Contact us"

@@ -822,12 +822,14 @@ height: 0 !important;
   font-size: 4rem;
   margin-top:5rem;
   line-height: 4.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
 }
 
 .res_p{
   font-size:20px;
   color:white;
-  margin-top:23rem
+  margin-top:23rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
 }
 
 .res_col12{
@@ -1043,6 +1045,7 @@ height: 0 !important;
 .obj_text{
   font-family:'Heebo';
   width:37rem;
+  max-width:100%;
   font-weight:600;
 }
 

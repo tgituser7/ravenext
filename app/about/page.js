@@ -104,7 +104,7 @@ export default function AboutPage() {
 
       <section className="h_s4">
         <div className="container">
-          <div className="row my-5 h_s4row" style={{ height: "25rem" }}>
+          <div className="row my-5 h_s4row">
             <div className="col-5 p-0">
               <a target="_blank" rel="noreferrer" href="https://ravibhatia.com">
                 <img className="ds-img" src="/res/leadership.png" alt="" style={{ width: "40rem" }} />

@@ -560,7 +560,7 @@ display: none;
 justify-content:space-around;
 transition: all 0.5s ease;
 animation: 1.5s ease row-animation;
-margin-top:4rem !important;
+margin-top:6.5rem !important;
 font-family:'Heebo';
 }
 @keyframes menu-animation{
@@ -5219,6 +5219,33 @@ padding:0;
 .home_s1_about{
   font-size:75px;
 }
+}
+
+@media (max-width: 991px){
+  .scroll_row .col-scroll-right{
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px){
+  .career_s3_div{
+    height: auto;
+    padding: 2rem 0;
+  }
+
+  .career_s4_col{
+    height: auto;
+    padding: 1.5rem 0;
+  }
+
+  .row > .col-6,
+  .row > .col-5{
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 

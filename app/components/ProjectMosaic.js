@@ -57,9 +57,7 @@ export default function ProjectMosaic() {
           <span className="mt-5 project_vspan">
             <span style={{ backgroundColor: "brown", width: "100%", height: "20%", display: "flex", flexWrap: "wrap" }}>
               <span style={{ backgroundColor: "rgb(215 103 103)", width: "30%", height: "100%", display: "flex", flexWrap: "wrap", flexDirection: "column" }}>
-                <span className="sectors-images" style={{ backgroundColor: "rgb(212, 114, 114)", width: "100%", height: "44%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <p className="vspan_text1">The Beginning</p>
-                </span>
+                <span className="sectors-images" style={{ backgroundColor: "rgb(212, 114, 114)", width: "100%", height: "44%", display: "flex", justifyContent: "center", alignItems: "center" }}></span>
                 <span className="sectors-images ad-video-play" style={{ backgroundColor: "rgb(128, 64, 64)", width: "100%", height: "56%" }}>
                   <video {...videoProps("/res/Nerolac (1).mov")}></video>
                 </span>
@@ -133,9 +131,7 @@ export default function ProjectMosaic() {
                     <video {...videoProps("/res/Bahubali Elaichi (1).mov")}></video>
                   </span>
                 </span>
-                <span className="sectors-images" style={{ backgroundColor: "rgb(212, 114, 114)", width: "100%", height: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  <p className="vspan_text2">To be continued...</p>
-                </span>
+                <span className="sectors-images" style={{ backgroundColor: "rgb(212, 114, 114)", width: "100%", height: "50%", display: "flex", justifyContent: "center", alignItems: "center" }}></span>
               </span>
             </span>
           </span>

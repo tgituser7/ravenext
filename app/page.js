@@ -34,12 +34,13 @@ export default function Home() {
               <p
                 style={{
                   fontFamily: "Roboto",
-                  fontSize: 33,
+                  fontSize: "clamp(22px, 5vw, 33px)",
                   borderLeft: "5px solid #3b9d8b",
-                  paddingLeft: "1rem",
                   backgroundColor: "darkslategray",
-                  height: "3rem",
+                  padding: "0.6rem 1rem",
                   color: "white",
+                  display: "inline-block",
+                  width: "100%",
                 }}
               >
                 At a glance
@@ -205,11 +206,11 @@ export default function Home() {
       <section className="clients_section">
         <div className="container">
           <div className="row">
-            <div className="col-7">
+            <div className="col-12 col-md-7">
               <p className="clientsserved">Corporate Collaboration</p>
               <p className="clients_text">The appriciation we receive for our work from the counterpart is priceless.</p>
             </div>
-            <div className="col-5" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <div className="col-12 col-md-5 mt-3 mt-md-0" style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap" }}>
               <img src="/res/c1.png" className="client-logo_home" alt="" />
               <img src="/res/c2.png" className="client-logo_home" alt="" />
               <img src="/res/c3.jpg" className="client-logo_home" alt="" />

@@ -41,7 +41,7 @@ export default function ProjectsPage() {
 
       <ResourceSections />
 
-      <section style={{ backgroundColor: "white", paddingBottom: "3rem", paddingTop: "3rem" }}>
+      <section style={{ backgroundColor: "white", paddingBottom: "5rem", paddingTop: "5rem" }}>
         <div className="container">
           <div className="row client_t1_row">
             <div className="col-12">
@@ -65,7 +65,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="container">
+      <section className="container" style={{ marginBottom: "3rem" }}>
         <p className="project_km">To Know More</p>
         <p className="project_akm f_heebo">about our work or any other business related query kindly reach us at work@rave.net.in</p>
         <p className="project_lkm f_heebo">We give the best quotation and solution.</p>
